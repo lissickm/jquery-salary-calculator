@@ -8,11 +8,15 @@ function readyNow() {
     console.log("DOM is ready!");
 
     // event listeners
-    $('#submitButton').on('click', addFirstName);
-
+    $('#submitButton').on('click', addInfoToTable);
+    
 }
 
-function addFirstName () {
+function addInfoToTable () {
     console.log('clicked');
-    $('#employeeInformation').append(`<tr><td>` + $('#firstNameInput').val() + `</td></tr>`)
+    $('#employeeInformation').append(`<tr>` + `<td>` + $('#firstNameInput').val() + `</td>` + `<td>` + $('#lastNameInput').val() + `</td>` + `<td>` + $('#idInput').val() + `</td>` + `<td>` + $('#titleInput').val() + `</td>` + `<td>` + "$" + $('#annualSalaryInput').val() + `</td>`
+    
+    
+    
+    +`</tr>`)
 }
