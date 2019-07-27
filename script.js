@@ -11,13 +11,14 @@ function readyNow() {
     $('#submitButton').on('click', addInfoToTable);
     $('#submitButton').on('click', displayTotalSalaries);
     $('#submitButton').on('click', clearInputs);
-    $('.deleteButton').on('click', clearTableRow);
-      
+    $('#employeeInformation' ).on("click", '#deleteButton', clearTableRow);
+    
 }
 
 function clearTableRow() {
     console.log('delete button was clicked');
-    $(this).closest("tr").remove();
+    /// **** Here's what I'm trying
+    $(this).closest("td").remove();
 
 }
 
@@ -49,7 +50,7 @@ function addInfoToTable () {
     // adds input values to table upon click
 
     console.log('submit button clicked');
-    $('#employeeInformation').append(`<tr>` + `<td>` + $('#firstNameInput').val() + `</td>` + `<td>` + $('#lastNameInput').val() + `</td>` + `<td>` + $('#idInput').val() + `</td>` + `<td>` + $('#titleInput').val() + `</td>` + `<td id="tableSalary">` + "$" + $('#annualSalaryInput').val() + `</td>` + `<td>` + `<button class="btn btn-danger">` + "delete" + `</button>` + `</td>` + `</tr>`);
+    $('#employeeInformation').append(`<tr>` + `<td>` + $('#firstNameInput').val() + `</td>` + `<td>` + $('#lastNameInput').val() + `</td>` + `<td>` + $('#idInput').val() + `</td>` + `<td>` + $('#titleInput').val() + `</td>` + `<td id="tableSalary">` + "$" + $('#annualSalaryInput').val() + `</td>` + `<td class="tdDelButLocation">` + `<button id="deleteButton" class="btn btn-danger">` + "delete" + `</button>` + `</td>` + `</tr>`);
     $('#firstNameInput').val(' ');
 }
 
