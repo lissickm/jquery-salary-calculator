@@ -11,9 +11,14 @@ function readyNow() {
     $('#submitButton').on('click', addInfoToTable);
     $('#submitButton').on('click', displayTotalSalaries);
     $('#submitButton').on('click', clearInputs);
-    
-    
-    
+    $('.deleteButton').on('click', clearTableRow);
+      
+}
+
+function clearTableRow() {
+    console.log('delete button was clicked');
+    $(this).closest("tr").remove();
+
 }
 
 function displayTotalSalaries() {
@@ -43,8 +48,8 @@ function displayTotalSalaries() {
 function addInfoToTable () {
     // adds input values to table upon click
 
-    console.log('clicked');
-    $('#employeeInformation').append(`<tr>` + `<td>` + $('#firstNameInput').val() + `</td>` + `<td>` + $('#lastNameInput').val() + `</td>` + `<td>` + $('#idInput').val() + `</td>` + `<td>` + $('#titleInput').val() + `</td>` + `<td id="tableSalary">` + "$" + $('#annualSalaryInput').val() + `</td>` + `<td>` + `<button>` + "delete" + `</button>` + `</td>` + `</tr>`);
+    console.log('submit button clicked');
+    $('#employeeInformation').append(`<tr>` + `<td>` + $('#firstNameInput').val() + `</td>` + `<td>` + $('#lastNameInput').val() + `</td>` + `<td>` + $('#idInput').val() + `</td>` + `<td>` + $('#titleInput').val() + `</td>` + `<td id="tableSalary">` + "$" + $('#annualSalaryInput').val() + `</td>` + `<td>` + `<button class="btn btn-danger">` + "delete" + `</button>` + `</td>` + `</tr>`);
     $('#firstNameInput').val(' ');
 }
 
@@ -57,4 +62,9 @@ function clearInputs () {
     $('#idInput').val('');
     $('#titleInput').val('');
     $('#annualSalaryInput').val('');     
+}
+
+function clearTableRow() {
+    console.log('delete button was clicked');
+    
 }

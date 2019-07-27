@@ -1,0 +1,15 @@
+#allInputs {
+  padding-bottom: 5px;  
+}
+
+#tableHeader {
+    padding-top: 50px;
+}
+
+#submitButton {
+   align: right;
+}
+
+#totalMonthlySalary {
+    text-align: right;
+}

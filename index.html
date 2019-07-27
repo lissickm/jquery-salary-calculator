@@ -29,13 +29,13 @@
             <input type="text" placeholder="Title" id="titleInput">
             <input type="number" placeholder="Annual Salary" id="annualSalaryInput">
         </div>
-            <button id=submitButton>Submit</button>
+            <button id="submitButton" class="btn btn-secondary" style="float: right;">Submit</button>
     </div>
 
     <div>
-        <h2>Employees</h2>
-        <table class = "table table-striped">
-            <thead>
+        <h2 id="tableHeader">Employees</h2>
+        <table class = "table table-striped table-bordered">
+            <thead class = "thead-dark">
                 <th>Name</th>
                 <th>Last Name</th>
                 <th>ID</th>
@@ -49,9 +49,9 @@
         
         </table>
 
-        <h2 id="totalMonthlySalary">
+        <h4 id="totalMonthlySalary">
 
-        </h2>
+        </h4>
     </div>
 
 
