@@ -17,22 +17,27 @@ function readyNow() {
 }
 
 function displayTotalSalaries() {
-    // takes the annual salary input and displays the sum at the bottom of the page
-    
-    $("#totalMonthlySalary").append(`<p>` + salaries +`</p>`)
     // takes salary input and places it in an array
+    
     salaries.push($('#annualSalaryInput').val());
     // for loop to add the values in the array
-    let sum = 0;
+    let sumAnnualSalaries = 0;
     for (i=0; i<salaries.length; i++) {
-        sum = parseInt(sum) + parseInt(salaries[i]);
+        sumAnnualSalaries = parseInt(sumAnnualSalaries) + parseInt(salaries[i]);
 
         console.log(salaries);
-        console.log(sum);    
+        console.log(sumAnnualSalaries);    
     }
+    let sumMonthlySalaries = sumAnnualSalaries/12;
 
-    $("#totalMonthlySalary").text('Total Salaries: $' + sum);
-}
+    console.log("sum of monthly salaries: " + sumMonthlySalaries);
+    
+    $("#totalMonthlySalary").text('Total Monthly: $' + Math.round(sumMonthlySalaries));
+
+    if(sumMonthlySalaries >= 20000) {  
+        $("#totalMonthlySalary").css("background-color", "red");
+    }
+}    
 
 
 function addInfoToTable () {
