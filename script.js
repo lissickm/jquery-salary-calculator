@@ -17,8 +17,14 @@ function readyNow() {
 
 function clearTableRow() {
     console.log('delete button was clicked');
-    /// **** Here's what I'm trying
-    $(this).closest("td").remove();
+   
+    let $row = $(this).closest("tr"),       // Finds the closest row <tr> 
+        $tds = $row.find("td");             // Finds all children <td> elements
+
+    $.each($tds, function () {               // Visits every single <td> element
+        console.log($(this).text());        // Prints out the text within the <td>
+        $tds.remove();
+    });
 
 }
 
@@ -26,6 +32,7 @@ function displayTotalSalaries() {
     // takes salary input and places it in an array
     
     salaries.push($('#annualSalaryInput').val());
+    
     // for loop to add the values in the array
     let sumAnnualSalaries = 0;
     for (i=0; i<salaries.length; i++) {
@@ -34,6 +41,7 @@ function displayTotalSalaries() {
         console.log(salaries);
         console.log(sumAnnualSalaries);    
     }
+    
     let sumMonthlySalaries = sumAnnualSalaries/12;
 
     console.log("sum of monthly salaries: " + sumMonthlySalaries);
@@ -50,8 +58,9 @@ function addInfoToTable () {
     // adds input values to table upon click
 
     console.log('submit button clicked');
-    $('#employeeInformation').append(`<tr>` + `<td>` + $('#firstNameInput').val() + `</td>` + `<td>` + $('#lastNameInput').val() + `</td>` + `<td>` + $('#idInput').val() + `</td>` + `<td>` + $('#titleInput').val() + `</td>` + `<td id="tableSalary">` + "$" + $('#annualSalaryInput').val() + `</td>` + `<td class="tdDelButLocation">` + `<button id="deleteButton" class="btn btn-danger">` + "delete" + `</button>` + `</td>` + `</tr>`);
-    $('#firstNameInput').val(' ');
+    
+    $('#employeeInformation').append(`<tr>` + `<td>` + $('#firstNameInput').val() + `</td>` + `<td>` + $('#lastNameInput').val() + `</td>` + `<td>` + $('#idInput').val() + `</td>` + `<td>` + $('#titleInput').val() + `</td>` + `<td class="tableSalary">` + "$" + $('#annualSalaryInput').val() + `</td>` + `<td class="tdDelButLocation">` + `<button id="deleteButton" class="btn btn-danger">` + "delete" + `</button>` + `</td>` + `</tr>`);
+   
 }
 
 function clearInputs () {
@@ -65,7 +74,3 @@ function clearInputs () {
     $('#annualSalaryInput').val('');     
 }
 
-function clearTableRow() {
-    console.log('delete button was clicked');
-    
-}
